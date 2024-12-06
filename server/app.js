@@ -3,6 +3,7 @@ const morgan = require("morgan");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
 const mongoose = require("mongoose");
+require("dotenv").config();
 
 // const cohorts = require("./cohorts.json");
 // const students = require("./students.json");
@@ -48,6 +49,12 @@ app.use("/api/cohorts", cohortRoutes);
 
 const studentRoutes = require("./Routes/student.routes.js");
 app.use("/api/students", studentRoutes);
+
+const authRoutes = require("./Routes/auth.routes.js");
+app.use("/api/auth", authRoutes);
+
+const userRoutes = require("./Routes/user.routes.js");
+app.use("/api/users", userRoutes);
 
 app.get("/docs", (req, res) => {
   res.sendFile(__dirname + "/views/docs.html");

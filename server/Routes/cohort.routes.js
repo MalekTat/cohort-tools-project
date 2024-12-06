@@ -1,8 +1,8 @@
 const router = require("express").Router();
-const Cohort = require("../models/Cohort.model");
+const CohortModel = require("../models/Cohort.model");
 
 router.post("/", (req, res, next) => {
-  Cohort.create({
+  CohortModel.create({
     cohortSlug: req.body.cohortSlug,
     cohortName: req.body.cohortName,
     program: req.body.program,
@@ -24,7 +24,7 @@ router.post("/", (req, res, next) => {
 });
 
 router.get("/", (req, res, next) => {
-  Cohort.find({})
+  CohortModel.find({})
     .then((cohorts) => {
       console.log("Retrieved cohorts", cohorts);
       res.status(200).json(cohorts);
@@ -35,7 +35,7 @@ router.get("/", (req, res, next) => {
 });
 
 router.get("/:cohortId", (req, res, next) => {
-  Cohort.findById(req.params.cohortId)
+  CohortModel.findById(req.params.cohortId)
     .then((oneCohort) => {
       console.log("Retrived one cohort", oneCohort);
       res.status(200).json(oneCohort);
@@ -46,7 +46,7 @@ router.get("/:cohortId", (req, res, next) => {
 });
 
 router.put("/:cohortId", (req, res, next) => {
-  Cohort.findByIdAndUpdate(req.params.cohortId, req.body, { new: true })
+  CohortModel.findByIdAndUpdate(req.params.cohortId, req.body, { new: true })
     .then((oneCohort) => {
       console.log("update one cohort", oneCohort);
       res.status(200).json(oneCohort);
@@ -57,7 +57,7 @@ router.put("/:cohortId", (req, res, next) => {
 });
 
 router.delete("/:cohortId", (req, res, next) => {
-  Cohort.findByIdAndDelete(req.params.cohortId)
+  CohortModel.findByIdAndDelete(req.params.cohortId)
     .then((oneCohort) => {
       console.log("deleting one Cohort", oneCohort);
       res.status(200).json(oneCohort);

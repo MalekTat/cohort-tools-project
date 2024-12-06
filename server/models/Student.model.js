@@ -45,6 +45,6 @@ const studentSchema = new Schema({
   cohort: { type: mongoose.Schema.Types.ObjectId, ref: "Cohort" },
 });
 
-const Student = mongoose.model("Student", studentSchema);
+const StudentModel = mongoose.model("Student", studentSchema);
 
-module.exports = Student;
+module.exports = StudentModel;
