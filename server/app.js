@@ -3,7 +3,7 @@ const morgan = require("morgan");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
 const mongoose = require("mongoose");
-require("dotenv").config();
+require("dotenv").config(); 
 
 // const cohorts = require("./cohorts.json");
 // const students = require("./students.json");
