@@ -10,7 +10,7 @@ router.get("/:id", isAuthenticated, async (req, res) => {
       res.json({ id: user._id, name: user.name, email: user.email });
     }
   } catch (error) {
-    res.status(500).json({ message: "internal Error", error });
+    res.status(500).json({ message: "internal Error hellllooooooo", error });
   }
 });
 
